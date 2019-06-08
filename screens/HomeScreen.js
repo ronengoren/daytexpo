@@ -8,16 +8,21 @@ import {
   TouchableOpacity,
   View,
   InteractionManager,
+  Button
 } from 'react-native';
-import { WebBrowser } from 'expo';
+import * as  WebBrowser  from 'expo';
 
 import { MonoText } from '../components/StyledText';
 import * as FirebaseAPI from '../modules/firebaseAPI';
 
+
+
 export default class HomeScreen extends React.Component {
+
   static navigationOptions = {
-    header: null,
+    title: 'Board List',
   };
+
 
   logout(navigation) {
     console.log('logout() called', navigation)
@@ -44,22 +49,33 @@ export default class HomeScreen extends React.Component {
           </View>
 
           <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
+            {/* {this._maybeRenderDevelopmentModeWarning()} */}
 
-            <Text style={styles.getStartedText}>Get started by opening</Text>
+            <Text style={styles.getStartedText}>Board List</Text>
 
             <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
+              <Button
+          title="Go to Details"
+          onPress={() => this.props.navigation.navigate('BoardDetails')}
+        />
+         <Button
+          title="Go to Add Board"
+          onPress={() => this.props.navigation.navigate('AddBoard')}
+        />
+        <Button
+          title="Go to Edit Board"
+          onPress={() => this.props.navigation.navigate('EditBoard')}
+        />
             </View>
 
             <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
+            
             </Text>
           </View>
 
           <View style={styles.helpContainer}>
             <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
+              <Text style={styles.helpLinkText}></Text>
             </TouchableOpacity>
           </View>
         </ScrollView>

@@ -9,9 +9,16 @@ import TabBarIcon from '../components/TabBarIcon';
 import HomeScreen from '../screens/HomeScreen';
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
+import BoardDetailScreen from '../components/BoardDetailScreen';
+import AddBoardScreen from '../components/AddBoardScreen';
+import EditBoardScreen from '../components/EditBoardScreen';
+
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  BoardDetails: BoardDetailScreen,
+  AddBoard: AddBoardScreen,
+  EditBoard: EditBoardScreen,
 });
 
 HomeStack.navigationOptions = {
